@@ -12,8 +12,8 @@ describe('User Model', () => {
       const userData = {
         email: 'test@example.com',
         password: 'testpassword123',
-        firstName: 'Test',
-        lastName: 'User'
+        first_name: 'Test',
+        last_name: 'User'
       };
 
       const user = await User.create(userData);
@@ -21,8 +21,8 @@ describe('User Model', () => {
       expect(user.id).toBeDefined();
       expect(user.email).toBe(userData.email);
       expect(user.password).toBe(userData.password);
-      expect(user.firstName).toBe(userData.firstName);
-      expect(user.lastName).toBe(userData.lastName);
+      expect(user.first_name).toBe(userData.first_name);
+      expect(user.last_name).toBe(userData.last_name);
       expect(user.isActive).toBe(true);
       expect(user.createdAt).toBeDefined();
       expect(user.updatedAt).toBeDefined();
@@ -72,21 +72,21 @@ describe('User Model', () => {
         {
           email: 'user1@example.com',
           password: 'password1',
-          firstName: 'User',
-          lastName: 'One'
+          first_name: 'User',
+          last_name: 'One'
         },
         {
           email: 'user2@example.com',
           password: 'password2',
-          firstName: 'User',
-          lastName: 'Two',
+          first_name: 'User',
+          last_name: 'Two',
           isActive: false
         },
         {
           email: 'user3@example.com',
           password: 'password3',
-          firstName: 'User',
-          lastName: 'Three'
+          first_name: 'User',
+          last_name: 'Three'
         }
       ]);
     });
@@ -142,13 +142,13 @@ describe('User Model', () => {
       const user = await User.create({
         email: 'update@example.com',
         password: 'password',
-        firstName: 'Old',
-        lastName: 'Name'
+        first_name: 'Old',
+        last_name: 'Name'
       });
 
-      await user.update({ firstName: 'New' });
+      await user.update({ first_name: 'New' });
       
-      expect(user.firstName).toBe('New');
+      expect(user.first_name).toBe('New');
     });
 
     it('should update user last name', async () => {
@@ -157,9 +157,9 @@ describe('User Model', () => {
         password: 'password'
       });
 
-      await user.update({ lastName: 'UpdatedLastName' });
+      await user.update({ last_name: 'UpdatedLastName' });
       
-      expect(user.lastName).toBe('UpdatedLastName');
+      expect(user.last_name).toBe('UpdatedLastName');
     });
 
     it('should deactivate user', async () => {

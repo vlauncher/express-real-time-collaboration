@@ -5,8 +5,8 @@ interface UserAttributes {
   id: number;
   email: string;
   password: string;
-  firstName?: string;
-  lastName?: string;
+  first_name?: string;
+  last_name?: string;
   isActive: boolean;
   createdAt?: Date;
   updatedAt?: Date;
@@ -18,8 +18,8 @@ class User extends Model<UserAttributes, UserCreationAttributes> implements User
   public id!: number;
   public email!: string;
   public password!: string;
-  public firstName?: string;
-  public lastName?: string;
+  public first_name?: string;
+  public last_name?: string;
   public isActive!: boolean;
 
   // timestamps
@@ -46,13 +46,15 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    firstName: {
+    first_name: {
       type: DataTypes.STRING,
       allowNull: true,
+      field: 'first_name'
     },
-    lastName: {
+    last_name: {
       type: DataTypes.STRING,
       allowNull: true,
+      field: 'last_name'
     },
     isActive: {
       type: DataTypes.BOOLEAN,
@@ -63,6 +65,8 @@ User.init(
     sequelize,
     tableName: 'Users',
     timestamps: true,
+    // Map JavaScript camelCase to database snake_case
+    underscored: false,
   }
 );
 
