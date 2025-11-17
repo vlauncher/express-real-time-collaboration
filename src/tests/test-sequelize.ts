@@ -26,14 +26,14 @@ const testSequelize = async () => {
     const testUser = await User.create({
       email: 'test@example.com',
       password: 'testpassword',
-      firstName: 'Test',
-      lastName: 'User'
+      first_name: 'Test',
+      last_name: 'User'
     });
     console.log('✅ Test user created:', {
       id: testUser.id,
       email: testUser.email,
-      firstName: testUser.firstName,
-      lastName: testUser.lastName
+      first_name: testUser.first_name,
+      last_name: testUser.last_name
     });
 
     // Clean up test user
